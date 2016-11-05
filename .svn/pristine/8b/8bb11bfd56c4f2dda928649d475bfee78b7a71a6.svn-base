@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.hisign.xcky.persist.mapper.${tableModel.tableName2Pascal}">
+
+	<resultMap type="${tableModel.tableName2Pascal}" id="${tableModel.tableName2Pascal}Map">
+		<#list tableModel.columnList as columnModel>
+		<result property="${columnModel.columnName2Camel}" column="${columnModel.columnName}" />
+		</#list>
+	</resultMap>
+	
+	<sql id="selectId">
+		<#list tableModel.columnList as columnModel>
+		${columnModel.columnName},
+		</#list>
+	</sql>
+  
+	<sql id="insertId">
+		<#list tableModel.columnList as columnModel>
+		${r"#"}{${columnModel.columnName2Camel}, jdbcType=${columnModel.columnType}},
+		</#list>
+	</sql>
+
+	<sql id="updateId">
+		<#list tableModel.columnList as columnModel>
+		${columnModel.columnName}=${r"#"}{${columnModel.columnName2Camel}, jdbcType=${columnModel.columnType}},
+		</#list>
+	</sql>
+	
+</mapper>

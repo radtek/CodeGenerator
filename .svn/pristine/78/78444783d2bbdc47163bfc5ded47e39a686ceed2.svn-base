@@ -1,0 +1,4 @@
+#数据库连接参数
+jdbc.url=jdbc:oracle:thin:@192.168.40.248:1521:xcky
+jdbc.username=XCKY
+jdbc.password=XCKY

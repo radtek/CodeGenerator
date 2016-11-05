@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hisign.xcky.persist.mapper.${tableModel.tableName2Pascal}">
+
+	<select id="getById" resultMap="${tableModel.tableName2Pascal}Map" parameterType="String">
+		SELECT
+			<include refid="selectId" />
+		FROM ${tableModel.tableName}
+		WHERE ID=${r"#"}{id}
+	</select>
+	
+	<insert id="add" parameterType="${tableModel.tableName2Pascal}">
+		INSERT INTO ${tableModel.tableName} (
+			<include refid="selectId" />
+		) VALUES (
+			<include refid="insertId" />
+		)
+	</insert>
+	
+	<delete id="deleteById" parameterType="String">
+		DELETE FROM ${tableModel.tableName} WHERE ID=${r"#"}{id}
+	</delete>
+	
+	<update id="deleteLogicById" parameterType="${tableModel.tableName2Pascal}">
+		UPDATE ${tableModel.tableName} 
+		<set>
+			DELETE_FLAG=${r"#"}{deleteFlag},
+			VERSION=VERSION+1,
+			UPDATE_USER_ID=${r"#"}{updateUserId, jdbcType=VARCHAR},
+			UPDATE_TIME=${r"#"}{updateTime, jdbcType=DATE}
+		</set>
+		WHERE ID=${r"#"}{id}
+	</update>
+	
+	<update id="updateById" parameterType="${tableModel.tableName2Pascal}">
+		UPDATE ${tableModel.tableName}
+		<set>
+			<include refid="updateId" />	
+		</set>
+		WHERE ID=${r"#"}{id}
+	</update>
+	
+	<select id="query" resultMap="${tableModel.tableName2Pascal}Map" parameterType="${tableModel.tableName2Pascal}">
+		SELECT
+			<include refid="selectId" />
+		FROM ${tableModel.tableName}
+		WHERE DELETE_FLAG=${r"#"}{deleteFlag}
+	</select>
+	
+</mapper>

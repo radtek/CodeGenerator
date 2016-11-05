@@ -1,0 +1,18 @@
+/**
+ * ${tableModel.tableName2Pascal}Mapper.java 
+ * Copyright(c) 2016 hisign
+ * ALL Rights Reserved.
+ */
+package com.hisign.xcky.persist.mapper;
+
+import com.hisign.xcky.api.persist.BaseMapper;
+
+/**
+ * <#if tableModel.tableChineseName?exists>${tableModel.tableChineseName}<#else>${tableModel.tableName2Pascal}</#if>Mapper
+ *
+ * @author MapperGenerator
+ */
+public interface ${tableModel.tableName2Pascal}Mapper extends BaseMapper<${tableModel.tableName2Pascal}> {
+
+
+}

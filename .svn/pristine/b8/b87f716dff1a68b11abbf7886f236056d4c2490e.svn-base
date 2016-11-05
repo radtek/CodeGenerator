@@ -1,0 +1,7 @@
+#数据库连接参数
+jdbc.url=jdbc:oracle:thin:@172.16.0.55:1522:xcky
+jdbc.username=xcky
+jdbc.password=xcky
+
+
+model.except.columns=id,version,delete_flag,create_user_id,create_time,update_user_id,update_time,

@@ -1,0 +1,4 @@
+<#list tableModelList as tableModel>
+<dubbo:service interface="com.hisign.xcky.api.service.xxx.${tableModel.tableName2Pascal}Service" protocol="rmi" ref="${tableModel.tableName2Camel}Service" />
+
+</#list>
