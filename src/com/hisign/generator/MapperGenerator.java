@@ -18,7 +18,7 @@ import com.hisign.util.ConfigUtil;
 import com.hisign.util.JDBCUtil;
 
 /**
- * Model生成器
+ * Mapper生成器
  * 
  * @author Hong
  */

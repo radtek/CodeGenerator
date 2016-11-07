@@ -1,10 +1,9 @@
 package com.hisign.main;
 
-import java.sql.SQLException;
-
 import com.hisign.generator.MapperGenerator;
 import com.hisign.generator.ModelGenerator;
 import com.hisign.generator.ServiceGenerator;
+import com.hisign.generator.SysDictGenerator;
 
 /**
  * 生成器
@@ -21,6 +20,8 @@ public class XCKY3Generator {
 			MapperGenerator.generate();
 		} else if (null != args && "ServiceGenerator".equals(args[0])) {
 			ServiceGenerator.generate();
+		} else if (null != args && "SysDictGenerator".equals(args[0])) {
+			SysDictGenerator.generate();
 		}
 	}
 }
