@@ -4,15 +4,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-
-import com.hisign.model.ColumnModel;
-import com.hisign.model.TableModel;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

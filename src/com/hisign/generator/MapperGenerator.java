@@ -89,7 +89,12 @@ public class MapperGenerator {
 			for (Map<String, Object> column : colList) {
 				ColumnModel columnModel = new ColumnModel();
 				columnModel.setColumnName((String) column.get("COLUMN_NAME"));
-				columnModel.setColumnType((String) column.get("DATA_TYPE"));
+				
+				String dataType = (String) column.get("DATA_TYPE");
+				if (dataType.equalsIgnoreCase("VARCHAR2")) {
+					dataType = "VARCHAR";
+				}
+				columnModel.setColumnType(dataType);
 				columnModel.setNullable((String) column.get("NULLABLE"));
 				
 				BigDecimal b = (BigDecimal) column.get("DATA_LENGTH");
