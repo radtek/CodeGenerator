@@ -12,19 +12,21 @@
 	
 	<sql id="selectId">
 		<#list tableModel.columnList as columnModel>
-		${columnModel.columnName},
+		${columnModel.columnName}<#if columnModel_has_next>,</#if>
 		</#list>
 	</sql>
   
 	<sql id="insertId">
 		<#list tableModel.columnList as columnModel>
-		${r"#"}{${columnModel.columnName2Camel}, jdbcType=${columnModel.columnType}},
+		${r"#"}{${columnModel.columnName2Camel}, jdbcType=${columnModel.columnType}}<#if columnModel_has_next>,</#if>
 		</#list>
 	</sql>
 
 	<sql id="updateId">
 		<#list tableModel.columnList as columnModel>
-		${columnModel.columnName}=${r"#"}{${columnModel.columnName2Camel}, jdbcType=${columnModel.columnType}},
+		<#if (columnModel.columnName!='ID' && columnModel.columnName!='DELETE_FLAG' && columnModel.columnName!='CREATE_USER_ID' && columnModel.columnName!='CREATE_TIME')>
+		${columnModel.columnName}=${r"#"}{${columnModel.columnName2Camel}, jdbcType=${columnModel.columnType}}<#if columnModel_has_next>,</#if>
+		</#if>
 		</#list>
 	</sql>
 	

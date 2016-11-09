@@ -27,7 +27,7 @@
 		UPDATE ${tableModel.tableName} 
 		<set>
 			DELETE_FLAG=${r"#"}{deleteFlag},
-			VERSION=VERSION+1,
+			VERSION=${r"#"}{version, jdbcType=VARCHAR},
 			UPDATE_USER_ID=${r"#"}{updateUserId, jdbcType=VARCHAR},
 			UPDATE_TIME=${r"#"}{updateTime, jdbcType=DATE}
 		</set>
